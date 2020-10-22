@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         View Instagram without login
+// @name         View Instagram Without Login
 // @namespace    vinstagram
-// @version      0.0.2
+// @version      0.0.3
 // @description  View Instagram without login via imginn.com
 // @author       bitst0rm
 // @license      WTFPL
@@ -21,12 +21,7 @@
         function go() {
             var p = window.location.pathname.split("/");
             if (/^((?!(accounts|developer|about|legal|explore|directory|stories)).)*$/.test(p[1]) && p.length > 2 && p[1] !== "p") {
-                var lang = "en";
-                var html = document.querySelector("html");
-                if (html && html.hasAttribute("lang")) {
-                    lang = html.getAttribute("lang") || "en";
-                }
-                window.location.replace("https://imginn.com/" + p[1] + "/?lang=" + lang);
+                window.location.replace("https://imginn.com/" + p[1] + "/?lang=" + window.navigator.languages[0].split("-")[0]);
             }
         }
 
