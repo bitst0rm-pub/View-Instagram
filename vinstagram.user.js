@@ -17,7 +17,7 @@
 (function() {
     'use strict';
 
-    if (window.document.cookie.indexOf('ds_user_id') == -1 ) {
+    if (window.document.cookie.indexOf("ds_user_id") == -1) {
         function go() {
             var p = window.location.pathname.split("/");
             if (/^((?!(accounts|developer|about|legal|explore|directory|stories)).)*$/.test(p[1]) && p.length > 2 && p[1] !== "p") {
