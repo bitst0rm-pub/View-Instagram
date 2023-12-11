@@ -20,8 +20,11 @@
     if (window.document.cookie.indexOf("ds_user_id") == -1) {
         var go = function() {
             var p = window.location.pathname.split("/");
-            if (/^((?!(accounts|developer|about|legal|explore|directory|stories)).)*$/.test(p[1]) && p.length > 2 && p[1] !== "p") {
+            if (/^((?!(accounts|developer|about|legal|explore|directory|stories|reel)).)*$/.test(p[1]) && p.length > 2 && p[1] !== "p") {
                 window.location.replace("https://imginn.com/" + p[1] + "/?lang=" + window.navigator.languages[0].split("-")[0]);
+            }
+            if (p[1] == "p") {
+                window.location.replace("https://imginn.com" + window.location.pathname)
             }
         };
 
